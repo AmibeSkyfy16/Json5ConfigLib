@@ -1,12 +1,12 @@
 @file:Suppress("UNUSED_VARIABLE")
 
-package ch.skyfy.jsonconfiglib.example2
+package ch.skyfy.json5configlib.example2
 
 import ch.skyfy.json5configlib.*
-import ch.skyfy.jsonconfiglib.example2.config.Configs
-import ch.skyfy.jsonconfiglib.example2.config.Home
-import ch.skyfy.jsonconfiglib.example2.config.Player
-import ch.skyfy.jsonconfiglib.example2.config.PlayersHomesConfig
+import ch.skyfy.json5configlib.example2.config.Configs
+import ch.skyfy.json5configlib.example2.config.Home
+import ch.skyfy.json5configlib.example2.config.Player
+import ch.skyfy.json5configlib.example2.config.PlayersHomesConfig
 import kotlin.reflect.jvm.jvmName
 import kotlin.test.Test
 
@@ -65,7 +65,7 @@ class Example2 {
         val configData = Configs.PLAYERS_HOMES
         val playersHomesConfig = configData.serializableData
 
-        configData.updateIterableNested<PlayersHomesConfig, PlayersHomesConfig,Player, MutableList<Player>>(PlayersHomesConfig::players, playersHomesConfig.players) {
+        configData.updateIterableNested<PlayersHomesConfig, PlayersHomesConfig, Player, MutableList<Player>>(PlayersHomesConfig::players, playersHomesConfig.players) {
             it.add(
                 Player(
                     mutableListOf(Home(100, 100, 100, 0.0f, 0.0f, "secret base")),
@@ -83,7 +83,7 @@ class Example2 {
             )
         }
         //or
-        configData.updateIterable<PlayersHomesConfig,Player, MutableList<Player>>(PlayersHomesConfig::players) {
+        configData.updateIterable<PlayersHomesConfig, Player, MutableList<Player>>(PlayersHomesConfig::players) {
             it.add(
                 Player(
                     mutableListOf(Home(100, 100, 100, 0.0f, 0.0f, "secret base")),

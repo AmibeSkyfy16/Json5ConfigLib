@@ -1,4 +1,4 @@
-package ch.skyfy.jsonconfiglib.example3.config
+package ch.skyfy.json5configlib.example3.config
 
 import ch.skyfy.json5configlib.ConfigData
 import java.nio.file.Paths

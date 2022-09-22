@@ -1,8 +1,6 @@
 package ch.skyfy.json5configlib.example5.config
 
 import ch.skyfy.json5configlib.ConfigData
-import ch.skyfy.jsonconfiglib.example5.config.AConfig
-import ch.skyfy.jsonconfiglib.example5.config.DefaultAConfig
 import java.nio.file.Paths
 
 object Configs {

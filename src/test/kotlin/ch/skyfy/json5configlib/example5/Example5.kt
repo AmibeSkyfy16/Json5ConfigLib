@@ -1,9 +1,9 @@
 package ch.skyfy.json5configlib.example5
 
 import ch.skyfy.json5configlib.*
-import ch.skyfy.jsonconfiglib.example5.config.AConfig
-import ch.skyfy.jsonconfiglib.example5.config.B
-import ch.skyfy.jsonconfiglib.example5.config.BB
+import ch.skyfy.json5configlib.example5.config.AConfig
+import ch.skyfy.json5configlib.example5.config.B
+import ch.skyfy.json5configlib.example5.config.BB
 import ch.skyfy.json5configlib.example5.config.Configs
 import kotlin.test.Test
 

@@ -1,7 +1,7 @@
-package ch.skyfy.jsonconfiglib.example3
+package ch.skyfy.json5configlib.example3
 
 import ch.skyfy.json5configlib.ConfigManager
-import ch.skyfy.jsonconfiglib.example3.config.Configs
+import ch.skyfy.json5configlib.example3.config.Configs
 import kotlin.test.Test
 
 class Example3 {

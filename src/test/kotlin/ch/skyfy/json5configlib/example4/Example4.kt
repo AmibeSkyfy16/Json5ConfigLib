@@ -1,10 +1,10 @@
-package ch.skyfy.jsonconfiglib.example4
+package ch.skyfy.json5configlib.example4
 
 import ch.skyfy.json5configlib.ConfigManager
 import ch.skyfy.json5configlib.SetOperation
 import ch.skyfy.json5configlib.update
-import ch.skyfy.jsonconfiglib.example4.config.Configs
-import ch.skyfy.jsonconfiglib.example4.config.Database
+import ch.skyfy.json5configlib.example4.config.Configs
+import ch.skyfy.json5configlib.example4.config.Database
 import kotlin.reflect.jvm.jvmName
 import kotlin.test.Test
 
