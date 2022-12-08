@@ -8,5 +8,5 @@ object Configs {
     /**
      * In this example we use a default JSON file located inside the jar
      */
-    val CONFIG = ConfigData.invoke<Database>(Paths.get("C:\\temp\\database.json"), "example4/database.json", true)
+    val CONFIG = ConfigData.invoke<Database>(Paths.get("C:\\temp\\database.json5"), "example4/database.json5", true)
 }

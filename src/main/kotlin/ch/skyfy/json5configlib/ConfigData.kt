@@ -2,8 +2,6 @@
 
 package ch.skyfy.json5configlib
 
-import ch.skyfy.jsonconfiglib.Defaultable
-import ch.skyfy.jsonconfiglib.Validatable
 import java.nio.file.Path
 import kotlin.properties.Delegates
 import kotlin.reflect.KMutableProperty1

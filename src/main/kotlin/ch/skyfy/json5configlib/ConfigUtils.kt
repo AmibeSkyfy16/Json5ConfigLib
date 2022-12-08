@@ -1,8 +1,8 @@
-package ch.skyfy.jsonconfiglib
+package ch.skyfy.json5configlib
 
 object ConfigUtils {
     /**
-     * An utils fun that will call [Class.forName] to load configuration for each [Class] inside the [Array]
+     * A fun that will call [Class.forName] to load configuration for each [Class] inside the [Array]
      *
      * @param classesToLoad An [Array] of class representing singleton object that contains [ConfigData] fields that need to be loaded
      */

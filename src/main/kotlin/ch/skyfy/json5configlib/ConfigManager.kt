@@ -2,9 +2,6 @@
 
 package ch.skyfy.json5configlib
 
-import ch.skyfy.jsonconfiglib.ConfigUtils
-import ch.skyfy.jsonconfiglib.Defaultable
-import ch.skyfy.jsonconfiglib.Validatable
 import io.github.xn32.json5k.Json5
 import io.github.xn32.json5k.decodeFromStream
 import io.github.xn32.json5k.encodeToStream

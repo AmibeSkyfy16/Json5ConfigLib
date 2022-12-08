@@ -1,7 +1,7 @@
 package ch.skyfy.json5configlib.example4.config
 
-import ch.skyfy.jsonconfiglib.Defaultable
-import ch.skyfy.jsonconfiglib.Validatable
+import ch.skyfy.json5configlib.Defaultable
+import ch.skyfy.json5configlib.Validatable
 
 @kotlinx.serialization.Serializable
 data class Database(

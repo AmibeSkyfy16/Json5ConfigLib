@@ -8,5 +8,5 @@ object Configs {
     /**
      * In this example, we use a class called DefaultConfig that will generate a default configuration
      */
-    val CONFIG = ConfigData.invoke<Config, DefaultConfig>(Paths.get("C:\\temp\\games.json"), true)
+    val CONFIG = ConfigData.invoke<Config, DefaultConfig>(Paths.get("C:\\temp\\games.json5"), true)
 }

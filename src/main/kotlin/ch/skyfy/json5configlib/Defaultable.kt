@@ -1,4 +1,4 @@
-package ch.skyfy.jsonconfiglib
+package ch.skyfy.json5configlib
 
 /**
  * An interface used to create by reflection a default configuration object base on type [DATA]

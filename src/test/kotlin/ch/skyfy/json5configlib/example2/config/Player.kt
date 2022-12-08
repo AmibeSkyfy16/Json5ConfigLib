@@ -1,6 +1,6 @@
 package ch.skyfy.json5configlib.example2.config
 
-import ch.skyfy.jsonconfiglib.Validatable
+import ch.skyfy.json5configlib.Validatable
 import kotlinx.serialization.Serializable
 
 @Serializable

@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package ch.skyfy.jsonconfiglib
+package ch.skyfy.json5configlib
 
 import ch.skyfy.json5configlib.ConfigManager.LOGGER
 
