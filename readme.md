@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("ch.skyfy.json5configlib:json5-config-lib:1.0.1")!! // TODO later
+    implementation("ch.skyfy.json5configlib:json5-config-lib:1.0.2")!! // TODO later
 }
 ```
 

@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.Properties
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.7.22"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.22"
+    id("org.jetbrains.kotlin.jvm") version "1.8.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.0"
     id("java-library")
     `maven-publish`
     idea
@@ -23,10 +23,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.22")
-//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.1")
-//    implementation(":json5k-0.2.1")
     implementation("io.github.xn32:json5k:0.2.1")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
     implementation("org.slf4j:slf4j-api:2.0.5")
@@ -115,7 +113,7 @@ publishing {
             url = uri("https://repo.repsy.io/mvn/amibeskyfy16/repo")
             credentials {
                 val properties = Properties()
-                properties.load(file("D:\\repsy.properties").inputStream())
+                properties.load(file("E:\\repsy.properties").inputStream())
                 username = "${properties["USERNAME"]}"
                 password = "${properties["PASSWORD"]}"
             }
