@@ -41,36 +41,7 @@ data class Groups(
             mutableSetOf()
         )
     )
-) : Validatable{
-//    constructor() : this(mutableSetOf())
-
-//    override fun getDefault(): Groups {
-//        return Groups(
-//            mutableSetOf(
-//                Group(
-//                    "DEFAULT",
-//                    0,
-//                    mutableSetOf(
-//                        CommandPermission("command", false),
-//                        CommandPermission("command.msg", true),
-//                        CommandPermission("command.homes.create.titi", true),
-//                        CommandPermission("command.ghuperms", true)
-//                    ),
-//                    mutableSetOf()
-//                ),
-//                Group(
-//                    "OP",
-//                    100,
-//                    mutableSetOf(
-//                        CommandPermission("command", true)
-//                    ),
-//                    mutableSetOf()
-//                )
-//            )
-//        )
-//    }
-
-}
+) : Validatable
 
 @Serializable
 data class CommandPermission(

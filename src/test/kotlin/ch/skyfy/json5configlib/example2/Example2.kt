@@ -20,18 +20,18 @@ class Example2 {
         ConfigManager.loadConfigs(arrayOf(Configs::class.java))
 
         // TEST TO FIX A BUG ---------------
-        println("Reload")
-        ConfigManager.reloadConfig(GROUPS)
-        GROUPS.serializableData.list.firstOrNull { group -> group.name == "DEFAULT" }?.let { group ->
-            GROUPS.updateIterableNested(Group::members, group.members) { members ->
-                val name = "skyfy16"
-                if (!members.contains(name)) members.add(name)
-            }
-        }
-        if (0 == 0) {
+//        println("Reload")
+//        ConfigManager.reloadConfig(GROUPS)
+//        GROUPS.serializableData.list.firstOrNull { group -> group.name == "DEFAULT" }?.let { group ->
+//            GROUPS.updateIterableNested(Group::members, group.members) { members ->
+//                val name = "skyfy16"
+//                if (!members.contains(name)) members.add(name)
+//            }
+//        }
+//        if (0 == 0) {
 //            Thread.sleep(10000)
-            return
-        }
+//            return
+//        }
         // TEST TO FIX A BUG --------------- FIXED
 
         // add a global notifier. This means that every time the config is updated, the code will be called

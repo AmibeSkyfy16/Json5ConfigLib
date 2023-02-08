@@ -80,8 +80,8 @@ object ConfigManager {
 
     /**
      * This method try to deserialize a JSON file to an object of type [DATA].
-     * If the JSON file is not found, a new object will be created provided by the type [DATA]
-     * and a new JSON file will be created. In this case, [DATA] has to implement the [Defaultable] interface and also has to have a single no-arg constructor !
+     * If the JSON file is not found, a new object will be created provided by the type [DATA] and his default assigned value
+     * and a new JSON file will be created.
      *
      * If the JSON file does not match the JSON standard or your specific implementation that you override in your data classes,
      * a [RuntimeException] will be thrown
@@ -93,15 +93,12 @@ object ConfigManager {
     inline fun <reified DATA> getOrCreateConfigSpecial(
         file: Path,
         json: Json5 = ConfigManager.json,
-    ): DATA where DATA : Validatable, DATA : Defaultable<DATA> {
+    ): DATA where DATA : Validatable {
         try {
-            DATA::class.createInstance()
-//            if (DATA::class.superclasses.any { it == Defaultable::class }) {
             val d: DATA = if (file.exists()) get(file, json, true)
-            else save(DATA::class.createInstance().getDefault(), file, json)
+            else save(DATA::class.createInstance(), file, json)
             d.confirmValidate(shouldThrowRuntimeException = true)
             return d
-//            } else throw Exception("Method getOrCreateConfig2: DATA class does not implement the Defaultable class ")
         } catch (e: java.lang.Exception) {
             throw RuntimeException(e)
         }
