@@ -3,10 +3,8 @@
 package ch.skyfy.json5configlib.example2
 
 import ch.skyfy.json5configlib.*
-import ch.skyfy.json5configlib.example2.config.Configs
-import ch.skyfy.json5configlib.example2.config.Home
-import ch.skyfy.json5configlib.example2.config.Player
-import ch.skyfy.json5configlib.example2.config.PlayersHomesConfig
+import ch.skyfy.json5configlib.example2.config.*
+import ch.skyfy.json5configlib.example2.config.Configs.GROUPS
 import kotlin.reflect.jvm.jvmName
 import kotlin.test.Test
 
@@ -21,9 +19,24 @@ class Example2 {
         // They will be generated from the classes that implement the Defaultable interface or else json files that are located inside the jar will be copied where they are supposed to be
         ConfigManager.loadConfigs(arrayOf(Configs::class.java))
 
+        // TEST TO FIX A BUG ---------------
+        println("Reload")
+        ConfigManager.reloadConfig(GROUPS)
+        GROUPS.serializableData.list.firstOrNull { group -> group.name == "DEFAULT" }?.let { group ->
+            GROUPS.updateIterableNested(Group::members, group.members) { members ->
+                val name = "skyfy16"
+                if (!members.contains(name)) members.add(name)
+            }
+        }
+        if (0 == 0) {
+//            Thread.sleep(10000)
+            return
+        }
+        // TEST TO FIX A BUG --------------- FIXED
+
         // add a global notifier. This means that every time the config is updated, the code will be called
         Configs.PLAYERS_HOMES.registerOnUpdate { operation ->
-            if(operation is SetOperation<PlayersHomesConfig, *>) {
+            if (operation is SetOperation<PlayersHomesConfig, *>) {
                 val kMutableProperty1 = operation.prop
                 val oldValue = operation.oldValue
                 val newValue = operation.newValue
@@ -32,7 +45,7 @@ class Example2 {
                 println("Updating sideboard...")
                 println("Updating game...")
                 println()
-            }else if(operation is UpdateIterableOperation<PlayersHomesConfig, *>){
+            } else if (operation is UpdateIterableOperation<PlayersHomesConfig, *>) {
                 val kMutableProperty1 = operation.prop
                 val newValue = operation.newValue
                 val playersHomesConfig = operation.origin
@@ -46,7 +59,7 @@ class Example2 {
         // You can also add a notifier on a custom property
         // Here we add a notifier on maxHomes property, mean each time url is set, the code below will be invoked
         Configs.PLAYERS_HOMES.registerOnUpdateOn(Player::maxHomes) { operation ->
-            if(operation is SetOperation<PlayersHomesConfig, *>) {
+            if (operation is SetOperation<PlayersHomesConfig, *>) {
                 val kMutableProperty1 = operation.prop
                 val oldValue = operation.oldValue
                 val newValue = operation.newValue
@@ -93,8 +106,8 @@ class Example2 {
         }
 
 
-        configData.updateIterableNested<PlayersHomesConfig, Player, Home, MutableList<Home>>(Player::homes, playersHomesConfig.players.first().homes){
-            for(i in 0..10){
+        configData.updateIterableNested<PlayersHomesConfig, Player, Home, MutableList<Home>>(Player::homes, playersHomesConfig.players.first().homes) {
+            for (i in 0..10) {
                 it.add(Home(100, 100, 100, 0.0f, 0.0f, "secret base"))
             }
         }

@@ -172,10 +172,17 @@ data class ConfigData<DATA : Validatable>(
         inline operator fun <reified DATA : Validatable> invoke(relativeFilePath: Path, defaultFile: String, automaticallySave: Boolean) =
             invokeImpl(ConfigManager.getOrCreateConfig<DATA>(relativeFilePath, defaultFile), relativeFilePath, automaticallySave)
 
+        /**
+         * Make sure [DATA] implement [Defaultable] interface and also have a single no-arg constructor !  ( like: constructor() : this(mutableSetOf()) )
+         */
+        inline fun <reified DATA> invokeSpecial(relativePath: Path, automaticallySave: Boolean) where DATA : Validatable, DATA : Defaultable<DATA> =
+            invokeImpl(ConfigManager.getOrCreateConfigSpecial<DATA>(relativePath), relativePath, automaticallySave)
+
         inline fun <reified DATA : Validatable> invokeImpl(serializableData: DATA, relativePath: Path, automaticallySave: Boolean): ConfigData<DATA> {
             val onUpdateCallbacks = mutableListOf<(Operation<DATA>) -> Unit>()
-            if (automaticallySave) onUpdateCallbacks.add { ConfigManager.save(serializableData, relativePath) }
-            return ConfigData(serializableData, relativePath, onUpdateCallbacks)
+            val configData = ConfigData(serializableData, relativePath, onUpdateCallbacks)
+            if (automaticallySave) onUpdateCallbacks.add { ConfigManager.save(configData.serializableData, configData.relativePath) }
+            return configData
         }
     }
 
