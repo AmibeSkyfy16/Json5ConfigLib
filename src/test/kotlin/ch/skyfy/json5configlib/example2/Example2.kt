@@ -74,6 +74,17 @@ class Example2 {
             println("on reloaded")
         }
 
+        val player = Configs.PLAYERS_HOMES.serializableData.players.first { it.uuid == "1234" }
+        val home = player.homes.first { it.name == "firstHome" }
+//        home.nested.nested2.name = "newName"
+
+
+        Configs.PLAYERS_HOMES.updateNested(Nested2::name, home.nested.nested2, "Im a member of nested2 class")
+//        Configs.PLAYERS_HOMES.update(PlayersHomesConfig::str, "newValue")
+
+//        ConfigManager.save(Configs.PLAYERS_HOMES)
+
+
         // Now we can access the config
         val configData = Configs.PLAYERS_HOMES
         val playersHomesConfig = configData.serializableData

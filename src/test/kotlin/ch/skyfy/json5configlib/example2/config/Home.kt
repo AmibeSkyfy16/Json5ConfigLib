@@ -11,5 +11,12 @@ data class Home(
     var z: Int,
     var pitch: Float,
     var yaw: Float,
-    var name: String
+    var name: String,
+    var nested: Nested = Nested("1", Nested2("2"))
 ) : Validatable
+
+@Serializable
+data class Nested(val name: String, val nested2: Nested2) : Validatable
+
+@Serializable
+data class Nested2(var name: String) : Validatable
