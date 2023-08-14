@@ -19,7 +19,7 @@ object ConfigManager {
         prettyPrint = true
         indentationWidth = 2
 //        quoteMemberNames = true
-        nativeLineTerminators = true
+//        nativeLineTerminators = true
 //        isLenient = true
         encodeDefaults = true
 //        allowStructuredMapKeys = true

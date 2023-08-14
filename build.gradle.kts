@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.Properties
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.8.10"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+    id("org.jetbrains.kotlin.jvm") version "1.8.22"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22"
     id("java-library")
     `maven-publish`
     idea
@@ -23,15 +23,15 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.10")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.1")
-    implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
-    implementation("org.slf4j:slf4j-api:2.0.5")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.22")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1")
+    implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
+    implementation("org.slf4j:slf4j-api:2.0.7")
 
-    api("io.github.xn32:json5k:0.2.1")
+    api("io.github.xn32:json5k:0.3.0")
 
-    testImplementation("ch.qos.logback:logback-classic:1.4.5")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.10")
+    testImplementation("ch.qos.logback:logback-classic:1.4.11")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.8.22")
 }
 
 tasks {
@@ -55,6 +55,11 @@ tasks {
             languageVersion.set(JavaLanguageVersion.of(javaVersion.toString()))
             vendor.set(JvmVendorSpec.BELLSOFT)
         }
+    }
+
+    named<Wrapper>("wrapper") {
+        gradleVersion = "8.2.1"
+        distributionType = Wrapper.DistributionType.BIN
     }
 
     javadoc {
@@ -96,7 +101,7 @@ publishing {
 
             pom {
                 name.set(project.base.archivesName.get())
-                description.set("a tiny json config library used for minecraft mod dev")
+                description.set("A tiny json5 config library used for minecraft modding development")
 
                 licenses {
                     license {
@@ -114,7 +119,7 @@ publishing {
             url = uri("https://repo.repsy.io/mvn/amibeskyfy16/repo")
             credentials {
                 val properties = Properties()
-                properties.load(file("E:\\repsy.properties").inputStream())
+                properties.load(file("D:\\Tech\\Resources\\Repsy\\repsy.properties").inputStream())
                 username = "${properties["USERNAME"]}"
                 password = "${properties["PASSWORD"]}"
             }

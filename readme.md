@@ -12,7 +12,7 @@
 
 ```
 plugins {
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10" // Use for annotation like @kotlinx.serialization.Serializable
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22" // Use for annotation like @kotlinx.serialization.Serializable
 }
 
 repositories {
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    implementation("ch.skyfy.json5configlib:json5-config-lib:1.0.22")!! // TODO later
+    implementation("ch.skyfy.json5configlib:json5-config-lib:1.0.23")!! // TODO later
 }
 ```
 
